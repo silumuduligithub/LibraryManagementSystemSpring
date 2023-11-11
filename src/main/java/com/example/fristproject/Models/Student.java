@@ -15,5 +15,6 @@ public class Student
     private String name;
     private String email;
     private String genger;
+    private  int roll;
     private  int age;
 }
