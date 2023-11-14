@@ -32,4 +32,23 @@ public class StudentController {
         studentMap.put(roll, student);
         return "student name updated successfully";
     }
+
+    @DeleteMapping("/removeAllStudent")
+    public String removeAllStudent(){
+//        studentMap = new HashMap<>();
+        for(int key : studentMap.keySet()){
+            studentMap.remove(key);
+        }
+        return "all the students are deleted successfullly";
+    }
+
+    @GetMapping("/get-student-by-name")
+    public Student getStudentByName(@RequestParam String studentName){
+        for(int key : studentMap.keySet()){
+            if(studentMap.get(key).getName().equals(studentName)){
+                return studentMap.get(key);
+            }
+        }
+        return null;
+    }
 }
